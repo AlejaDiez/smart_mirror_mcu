@@ -1,7 +1,8 @@
 #ifndef __LED_STRIP
 #define __LED_STRIP
 
-#include "FastLED.h"
+#include <Arduino.h>
+#include <FastLED.h>
 
 #define ANIMATION_DELAY 2
 

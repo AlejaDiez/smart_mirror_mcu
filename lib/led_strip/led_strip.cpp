@@ -1,4 +1,3 @@
-#include <Arduino.h>
 #include "led_strip.hpp"
 
 void changeBrightnessWithAnimation(int brightness) {

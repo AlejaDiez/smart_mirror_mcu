@@ -2,7 +2,10 @@
 #include "led_strip.hpp"
 #include "utils.hpp"
 
-#define FIRMWARE_VERSION "0.1.1"
+#define FIRMWARE_VERSION "1.0.0"
+
+#define WIFI_SSID "vodafone0128" // "REPLACE_WITH_YOUR_SSID"
+#define WIFI_PASSWORD "TMLHDLDMXJZQDX" // "REPLACE_WITH_YOUR_PASSWORD"
 
 LedStrip<WS2812B, 32, 30>* ledStrip;
 
@@ -23,6 +26,10 @@ void setup() {
 
     // Initialize Smart Mirror led strip
     ledStrip = new LedStrip<WS2812B, 32, 30>(5, 2000);
+
+    // Initialize Wi-Fi
+    setupWifi(WIFI_SSID, WIFI_PASSWORD);
+    Serial.println();
 }
 
 void loop() {
