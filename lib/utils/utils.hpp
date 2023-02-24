@@ -1,6 +1,9 @@
+#ifndef __UTILS
+#define __UTILS
+
 #include <Arduino.h>
 
-int getChipId() {
+inline int getChipId() {
     uint32_t chipId = 0;
 
     for (int i = 0; i < 17; i += 8) {
@@ -8,3 +11,5 @@ int getChipId() {
     }
     return chipId;
 }
+
+#endif

@@ -1,10 +1,10 @@
 #include <Arduino.h>
-#include "led_strip.h"
-#include "utils.h"
+#include "led_strip.hpp"
+#include "utils.hpp"
 
-#define FIRMWARE_VERSION "0.1.0"
+#define FIRMWARE_VERSION "0.1.1"
 
-LedStrip* ledStrip;
+LedStrip<WS2812B, 32, 30>* ledStrip;
 
 void setup() {
     Serial.begin(115200);
@@ -22,7 +22,7 @@ void setup() {
     Serial.println();
 
     // Initialize Smart Mirror led strip
-    ledStrip = new LedStrip(5, 2000);
+    ledStrip = new LedStrip<WS2812B, 32, 30>(5, 2000);
 }
 
 void loop() {
