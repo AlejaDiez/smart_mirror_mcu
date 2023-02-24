@@ -16,6 +16,11 @@ A firmware for the esp32 board that allows you to create a Smart Mirror with an 
 ## Changelog
 ### Version 0.0.0 (February 2023)
 - 📋 Project start
+### Version 0.1.0 (February 2023)
+- 🧰 Led Strip class
+- 🔘 Led Strip status
+- 💡 Led Strip brightness
+- 🎨 Led Strip color
 
 ## License
 
