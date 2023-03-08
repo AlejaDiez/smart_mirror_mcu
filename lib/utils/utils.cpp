@@ -52,16 +52,18 @@ void initWebServer(LedStrip* ledStrip, int port) {
   webServer->on("/", HTTP_GET, [ledStrip]() {
     String file = SPIFFS.open("/index.html", "r").readString();
 
-    file.replace("{{version}}", FIRMWARE_VERSION);
-    file.replace("{{state}}", ledStrip->getState() ? "true" : "false");
-    file.replace("{{brightness}}", String((int)(ledStrip->getBrightness() * 100)));
-    file.replace("{{color}}", getHexColor(ledStrip->getColor()));
+    file.replace("{{FIRMWARE_VERSION}}", FIRMWARE_VERSION);
+    file.replace("{{STATE}}", ledStrip->getState() ? "active" : "");
+    file.replace("{{BRIGHTNESS}}", String((int)(ledStrip->getBrightness() * 100)));
+    file.replace("{{COLOR}}", getHexColor(ledStrip->getColor()));
     webServer->send(200, "text/html", file);
   });
   webServer->serveStatic("/styles/style.css", SPIFFS, "/styles/style.css");
   webServer->serveStatic("/scripts/script.js", SPIFFS, "/scripts/script.js");
   webServer->serveStatic("/fonts/Gilroy_Light.otf", SPIFFS, "/fonts/Gilroy_Light.otf");
   webServer->serveStatic("/fonts/Gilroy_ExtraBold.otf", SPIFFS, "/fonts/Gilroy_ExtraBold.otf");
+  webServer->serveStatic("/fonts/UIcons.ttf", SPIFFS, "/fonts/UIcons.ttf");
+  webServer->serveStatic("/icon.png", SPIFFS, "/icon.png");
 
   // REST API
   webServer->on("/state", HTTP_GET, [ledStrip]() {

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Mirror</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+  </head>
+  <body>
+    <header>
+      <h1 id="title">Smart Mirror</h1>
+      <h6 id="firmware_version">v{{FIRMWARE_VERSION}}</h6>
+    </header>
+    <nav>
+      <div id="brightness_tab_button" class="tab_button" style="--percentage: {{BRIGHTNESS}}; --color: #53D8FB; --suffix: '%';" active>
+        <i></i>
+        <span>{{BRIGHTNESS}}</span>
+      </div>
+      <div id="color_tab_button" class="tab_button" style="--percentage: 100; --color: {{COLOR}};">
+        <i></i>
+      </div>
+    </nav>
+    <main>
+      <section id="brightness_section" active>
+        <input id="brightness_picker" type="range" value="{{BRIGHTNESS}}" min="0" max="100" step="1" style="--value: {{BRIGHTNESS}}%">
+      </section>
+      <section id="color_section" reverse>
+        <div id="color_picker"></div>
+      </section>
+    </main>
+    <div id="power_button" {{STATE}}>
+      <i></i>
+    </div>
+    <script type="text/javascript" src="scripts/script.js"></script>
+  </body>
+</html>

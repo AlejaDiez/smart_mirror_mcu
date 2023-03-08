@@ -29,6 +29,8 @@ A firmware for the esp32 board that allows you to create a Smart Mirror with an 
 ### Version 1.1.0 (March 2023)
 - 🌐 Web server
 - 🔗 REST API to control the Smart Mirror
+### Version 1.2.0 (March 2023)
+- 💻 Web to control the Smart Mirror
 
 ## License
 
